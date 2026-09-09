@@ -6,116 +6,87 @@
 
 ---
 
-## 📌 1. Visão Geral do Repositório
+Repositório dedicado aos meus estudos, exercícios, anotações e projetos de **Banco de Dados** desenvolvidos durante minha formação no SENAI.
 
-Este repositório registra minha evolução acadêmica e prática na disciplina de **Banco de Dados Relacionais**. O foco do curso abrange desde os conceitos fundamentais de Modelagem Entidade-Relacionamento (MER/DER) e administração de bancos de dados via CLI até a escrita de scripts DDL/DML em PostgreSQL e diagramação de esquemas utilizando sintaxe Mermaid.js.
-
----
-
-## 🚀 2. O Que Foi Desenvolvido Até Agora (Progresso Atual)
-
-Até o presente momento, o repositório conta com anotações teóricas, guias técnicos de referência rápida, modelos relacionais e scripts SQL de criação de tabelas.
-
-### 📚 Tópicos e Práticas Concluídas:
-
-1. **Administração & CLI do PostgreSQL (`anotacoesBD.md`):**
-   - Acesso ao PostgreSQL via CLI (`psql`) com usuário do sistema (PAM) e usuário do banco (`-U postgres -h localhost`).
-   - Comandos de gerenciamento de bancos de dados (`CREATE DATABASE`, `ALTER DATABASE OWNER TO`, `DROP DATABASE`, `\l`).
-   - Gerenciamento de usuários e privilégios (`CREATE USER`, `ALTER USER`, `DROP USER`).
-
-2. **Linguagem SQL - DDL & DML (`anotacoesBD.md` & `meu_sql.pgsql`):**
-   - Criação de tabelas (`CREATE TABLE`) com chaves primárias autoincrementáveis (`SERIAL PRIMARY KEY`).
-   - Definição de chaves estrangeiras (`FOREIGN KEY`) para integridade referencial.
-   - Inserção de dados (`INSERT INTO ... VALUES`) e consultas básicas (`SELECT * FROM`).
-
-3. **Guia Completo de Tipos de Dados em PostgreSQL (`tiposdedados.md`):**
-   - **Numéricos:** `smallint`, `integer`, `bigint`, `decimal`/`numeric` (ideal para finanças), `real`, `double precision`.
-   - **Caractere:** `char(n)`, `varchar(n)`, `text`.
-   - **Binários & Temporal:** `bytea`, `date`, `time`, `timestamp`, `timestamptz` (com fuso horário) e `interval`.
-   - **Booleanos & Enums:** `boolean` e tipos enumerados customizados (`CREATE TYPE mood AS ENUM (...)`).
-
-4. **Modelagem Entidade-Relacionamento - MER/DER (`diagrama.md` & `tbl_clientes_compras.md`):**
-   - Conceito e aplicação de cardinalidades **1:1**, **1:N** e **N:N** (com tabela associativa).
-   - Metodologia de mapeamento por perguntas de cardinalidade (Tabela Primária $\rightarrow$ Tabela Secundária $\rightarrow$ Frequência).
-   - Representação gráfica de diagramas ER via **Mermaid.js** englobando entidades como `clientes`, `vendas`, `compras`, `pagamento`, `endereco` e `telefone`.
-
-### 🛠️ Tecnologias e Ferramentas Utilizadas:
-- **PostgreSQL 14+ / psql CLI**
-- **SQL (Data Definition Language & Data Manipulation Language)**
-- **Mermaid.js (Diagramas Entidade-Relacionamento)**
-- **Markdown (Documentação Técnica)**
+O conteúdo acompanha minha evolução desde os fundamentos de bancos relacionais até a criação e manipulação de estruturas mais complexas utilizando PostgreSQL.
 
 ---
 
-## 🗓️ 3. Mapeamento do Semestre (Cronograma & Evolução)
+## 📚 Conteúdos estudados
 
-Confira abaixo a estrutura de tópicos da disciplina, mapeada por módulos acadêmicos:
+### 🗄️ PostgreSQL
 
-- [x] **Módulo 1:** Introdução aos Bancos de Dados Relacionais e Operações CLI no PostgreSQL
-- [x] **Módulo 2:** Administração de BD e Gerenciamento de Usuários/Permissões
-- [x] **Módulo 3:** Definição de Estruturas com DDL (`CREATE TABLE`, Data Types, PK/FK)
-- [x] **Módulo 4:** Manipulação de Dados com DML (`INSERT`, `SELECT`, `UPDATE`, `DELETE`)
-- [x] **Módulo 5:** Modelagem Conceitual e Lógica (Relacionamentos 1:1, 1:N e N:N)
-- [x] **Módulo 6:** Diagramação ER (Entity-Relationship Diagrams) com Mermaid.js
-- [ ] **Módulo 7:** Consultas Avançadas (`JOIN`, `INNER JOIN`, `LEFT/RIGHT JOIN`)
-- [ ] **Módulo 8:** Agrupamento e Filtragem de Dados (`GROUP BY`, `HAVING`, `COUNT`, `SUM`, `AVG`)
-- [ ] **Módulo 9:** Subqueries e Visões (`VIEWS`)
-- [ ] **Módulo 10:** Integridade de Dados, Restrições (`CONSTRAINTS`) e Índices (`INDEX`)
-- [ ] **Módulo 11:** Normalização de Dados (1FN, 2FN e 3FN)
-- [ ] **Módulo 12:** Stored Procedures, Functions e Triggers no PostgreSQL
+* PostgreSQL
+* `psql`
+* Criação e gerenciamento de bancos
+* Usuários e permissões
+* Comandos via CLI
 
----
+### 🔤 SQL
 
-## 💻 4. Como Executar e Testar
+* DDL
+* DML
+* `CREATE`
+* `ALTER`
+* `DROP`
+* `INSERT`
+* `SELECT`
+* `UPDATE`
+* `DELETE`
 
-### Pré-requisitos:
-- PostgreSQL instalado localmente (ou via Docker).
-- Cliente de banco de dados (ex: `psql`, DBeaver, PGAdmin) ou extensão Mermaid no VS Code.
+### 🔗 Modelagem
 
-### Passo a Passo:
+* Modelo Entidade-Relacionamento
+* DER
+* Chaves primárias
+* Chaves estrangeiras
+* Relacionamentos 1:1
+* Relacionamentos 1:N
+* Relacionamentos N:N
+* Tabelas associativas
 
-1. **Acessar o terminal PostgreSQL:**
-   ```bash
-   psql -U postgres -h localhost
-   ```
+### 📊 Outros conteúdos
 
-2. **Criar o Banco de Dados de Teste:**
-   ```sql
-   CREATE DATABASE banco_estudos;
-   \c banco_estudos
-   ```
-
-3. **Executar o script SQL do repositório (`meu_sql.pgsql`):**
-   ```sql
-   CREATE TABLE clientes (
-       id SERIAL PRIMARY KEY,
-       nome VARCHAR(30),
-       sobre_nome VARCHAR(50),
-       telefone VARCHAR(13),
-       cpf VARCHAR(11)
-   );
-
-   CREATE TABLE vendas (
-       id SERIAL PRIMARY KEY,
-       data DATE,
-       id_cliente INT REFERENCES clientes(id)
-   );
-   ```
-
-4. **Visualizar os Diagramas Mermaid:**
-   - Abra arquivos como [`diagrama.md`](./diagrama.md) ou [`tbl_clientes_compras.md`](./tbl_clientes_compras.md) em um editor Markdown com suporte a Mermaid (ex: GitHub ou VS Code com extensão Markdown Preview Mermaid Support).
+* Tipos de dados
+* Consultas
+* `JOIN`
+* `GROUP BY`
+* `HAVING`
+* Funções de agregação
+* Views
+* Constraints
+* Índices
+* Normalização
+* Functions
+* Triggers
 
 ---
 
-## 📝 5. Próximos Passos & Anotações
+## 📂 Organização
 
-- [ ] Aprofundar estudos sobre junções (`JOINs`) complexas para relatórios de vendas.
-- [ ] Criar scripts com constraints adicionais (`UNIQUE`, `NOT NULL`, `CHECK`).
-- [ ] Implementar índices para otimização de busca nas tabelas de clientes e compras.
+| Pasta         | Conteúdo                               |
+| ------------- | -------------------------------------- |
+| `exercicios/` | Exercícios realizados durante as aulas |
+| `scripts/`    | Scripts SQL                            |
+| `anotacoes/`  | Anotações e materiais de estudo        |
+| `diagramas/`  | Modelos e diagramas de banco de dados  |
+| `projetos/`   | Projetos mais completos                |
 
-### 🔗 Links Úteis:
-- [Documentação Oficial do PostgreSQL](https://www.postgresql.org/docs/)
-- [Mermaid Live Editor](https://mermaid.live/)
+---
+
+## 🛠️ Tecnologias
+
+`PostgreSQL` `SQL` `PL/pgSQL` `Mermaid` `Markdown`
+
+---
+
+## 📈 Evolução
+
+Este repositório continuará sendo atualizado durante minha formação conforme novos conceitos, exercícios e projetos forem desenvolvidos.
+
+🎓 **Formação:** Técnico em Desenvolvimento de Sistemas — SENAI
+
+📚 **Status:** Em desenvolvimento
 
 ---
 *Repositório mantido por [João Wictor](https://github.com/joaorbm09) para fins acadêmicos.*
