@@ -42,7 +42,7 @@ WHERE id = 3;
 
 
 DELETE FROM  alunos
-WHERE id = 2;
+WHERE id = 5;
 
 
 DELETE FROM alunos;
