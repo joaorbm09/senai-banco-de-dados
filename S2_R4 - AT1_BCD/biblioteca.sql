@@ -13,7 +13,7 @@ CREATE TABLE livros (
     id_livro SERIAL PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
     autor VARCHAR(100) NOT NULL,
-    ano_publicacao SMALLINT NOT NULL CHECK (ano_publicacao = 0 OR ano_publicacao BETWEEN 1901 AND 2155),
+    ano_publicacao SMALLINT NOT NULL CHECK (ano_publicacao BETWEEN 1901 AND 2155),
     data_cad TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
