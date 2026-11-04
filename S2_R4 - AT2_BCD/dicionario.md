@@ -1,6 +1,12 @@
-﻿# Dicionário de dados
+﻿# diagrama 
 
-## `clientes`
+![alt text](image.png)
+
+
+# Dicionário de dados
+
+## tabela cliente
+### `clientes`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|
@@ -12,7 +18,8 @@
 
 ---
 
-## `animais`
+## tabela animais
+### `animais`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|
@@ -26,7 +33,8 @@
 
 ---
 
-## `consultas`
+## tabela consultas
+### `consultas`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|

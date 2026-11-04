@@ -1,7 +1,14 @@
+# diagrama 
+
+![alt text](image.png)
+
+
+
+
 # Dicionário de dados
 
-
-## `alunos`
+## tabela aluno:
+### `alunos`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|
@@ -11,7 +18,8 @@
 | `email` | `VARCHAR(150)` | — | Não | `NULL` | E-mail de contato do aluno. |
 | `data_cad` | `TIMESTAMP` | — | Sim | `CURRENT_TIMESTAMP` | Data e hora de criação do registro. |
 
-## `livros`
+## tabela livros
+### `livros`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|
@@ -21,7 +29,8 @@
 | `ano_publicacao` | `YEAR` | — | Sim | — | Ano de publicação. |
 | `data_cad` | `TIMESTAMP` | — | Sim | `CURRENT_TIMESTAMP` | Data e hora de criação do registro. |
 
-## `emprestimos`
+## tabela emprestimos
+### `emprestimos`
 
 | Campo | Tipo | Chave | Obrigatório | Padrão / geração | Descrição |
 |---|---|---|---|---|---|
