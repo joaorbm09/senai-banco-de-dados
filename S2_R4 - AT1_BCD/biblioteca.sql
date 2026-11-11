@@ -1,6 +1,3 @@
-CREATE DATABASE biblioteca;
-
-
 CREATE TABLE alunos (
     id_aluno SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
