@@ -1,6 +1,5 @@
 # 🗄️ Banco de Dados (PostgreSQL & Modelagem Relacional)
 
-![Status](https://img.shields.io/badge/Status-Em%20Andamento%20--%20Semestre%20Letivo-blue?style=for-the-badge&logo=postgresql)
 ![Tecnologia](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Modelagem](https://img.shields.io/badge/Mermaid.js-FF69B4?style=for-the-badge&logo=mermaid&logoColor=white)
 
