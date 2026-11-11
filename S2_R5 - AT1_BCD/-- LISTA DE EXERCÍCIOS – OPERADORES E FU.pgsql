@@ -1,6 +1,7 @@
 -- LISTA DE EXERCÍCIOS – OPERADORES E FUNÇÕES NO MYSQL
 
 -- 1. Crie um banco de dados chamado 'empresa_db'.
+CREATE DATABASE empresa_db;
 -- 2. Crie uma tabela chamada 'funcionarios' com as seguintes colunas:
 --    - 'id' → INT, chave primária e autoincremento
 --    - 'nome' → VARCHAR(100)
