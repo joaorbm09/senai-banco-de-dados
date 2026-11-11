@@ -1,5 +1,4 @@
-﻿CREATE DATABASE "clínica_veterinaria";
-
+﻿
 
 CREATE TABLE clientes (
     id_cliente SERIAL PRIMARY KEY,
