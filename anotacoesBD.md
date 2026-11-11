@@ -128,6 +128,105 @@ TRUNCATE TABLE clientes RESTART IDENTITY;
 ```
 ---
 
+## 5. Consultando tabelas pelo MobaXterm
+
+Depois de acessar o servidor pelo MobaXterm, use o terminal para entrar no PostgreSQL. Neste exemplo, o banco se chama `empresa` e o usuário se chama `empresa1`. Substitua pelos nomes que você utiliza.
+
+### A. Conectar ao banco pelo terminal
+
+```bash
+psql -h localhost -U empresa1 -d empresa
+```
+
+Digite a senha do usuário do PostgreSQL quando ela for solicitada.
+
+### B. Comandos dentro do psql
+
+Estes comandos são executados depois de entrar no PostgreSQL:
+
+| Comando | Para que serve |
+| --- | --- |
+| `\conninfo` | Mostrar os dados da conexão atual. |
+| `\l` | Listar os bancos de dados. |
+| `\c empresa` | Conectar ao banco `empresa` com o mesmo usuário. |
+| `\dt` | Listar as tabelas visíveis no caminho de busca atual. |
+| `\d public.funcionarios` | Mostrar as colunas, tipos e restrições da tabela. |
+| `\dp public.funcionarios` | Mostrar as permissões da tabela. |
+| `\q` | Sair do PostgreSQL e voltar ao terminal. |
+
+Para conferir o usuário e o banco atuais:
+
+```sql
+SELECT current_user, current_database();
+```
+
+### C. Consultar os registros da tabela
+
+```sql
+SELECT * FROM public.funcionarios;
+```
+
+Para visualizar apenas algumas colunas:
+
+```sql
+SELECT nome, cargo, salario
+FROM public.funcionarios;
+```
+
+Os comandos SQL, como `SELECT`, terminam com `;`. Os comandos do psql que começam com `\`, como `\dt` e `\c`, não precisam de `;`.
+
+Se o resultado abrir em uma tela de rolagem, pressione `q` para voltar ao psql.
+
+## 6. Corrigindo erro de permissão na tabela
+
+Se aparecer:
+
+```text
+ERROR: permission denied for table funcionarios
+```
+
+Isso significa que o usuário atual não tem permissão para a operação solicitada. Conseguir listar uma tabela com `\dt` não significa que você pode consultar os registros dela.
+
+### A. Conectar como administrador
+
+Se você possui acesso à conta `postgres`, execute dentro do psql:
+
+```text
+\c empresa postgres
+```
+
+Informe a senha de `postgres`, se ela for solicitada. O banco continua sendo `empresa`; o usuário da conexão passa a ser `postgres`.
+
+### B. Liberar a consulta para o usuário
+
+Execute com a conta administradora:
+
+```sql
+GRANT SELECT ON TABLE public.funcionarios TO empresa1;
+```
+
+Esse comando permite que `empresa1` consulte os dados da tabela.
+
+### C. Voltar ao usuário e testar
+
+```text
+\c empresa empresa1
+```
+
+```sql
+SELECT * FROM public.funcionarios;
+```
+
+Se você não possui acesso à conta administradora, peça ao professor ou administrador para executar o `GRANT`.
+
+O erro `must be owner of table funcionarios` ao tentar `ALTER TABLE ... OWNER TO` indica que sua conta não tem autoridade para alterar o proprietário. Para consultar a tabela, basta receber a permissão `SELECT`; não é necessário trocar o dono.
+
+Alterar o proprietário do banco com `ALTER DATABASE ... OWNER TO` não altera automaticamente o proprietário das tabelas existentes.
+
+Referências: [comandos do psql](https://www.postgresql.org/docs/current/app-psql.html) e [permissões com GRANT](https://www.postgresql.org/docs/current/sql-grant.html).
+
+---
+
 # Guia de Relacionamentos em Banco de Dados
 
 ## Relacionamentos
